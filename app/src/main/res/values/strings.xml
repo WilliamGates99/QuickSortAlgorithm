@@ -5,5 +5,9 @@
 
     <!--Main Activity-->
     <string name="string_main_input_hint">Enter a custom number</string>
+    <string name="string_main_button_add">Add</string>
+    <string name="string_main_button_sort">Sort</string>
+    <string name="string_main_title_initial">Initial List</string>
+    <string name="string_main_title_sorted">Sorted List</string>
 
 </resources>

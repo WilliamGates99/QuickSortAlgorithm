@@ -3,5 +3,9 @@
     <color name="colorAccent">#EF5350</color>
     <color name="colorWindowBackground">#1F1F1F</color>
     <color name="colorInputBoxStroke">#C9C9C9</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#C9C9C9</color>
     <color name="colorInputText">#C9C9C9</color>
+    <color name="colorButtonAdd">#797979</color>
+    <color name="colorButtonSort">#00C853</color>
+
 </resources>
