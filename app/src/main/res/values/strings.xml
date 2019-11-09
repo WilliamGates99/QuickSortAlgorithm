@@ -1,3 +1,9 @@
 <resources>
+
+    <!--App Name-->
     <string name="app_name">Quick Sort</string>
+
+    <!--Main Activity-->
+    <string name="string_main_input_hint">Enter a custom number</string>
+
 </resources>

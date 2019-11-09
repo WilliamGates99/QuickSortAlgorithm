@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#E53935</color>
     <color name="colorWindowBackground">#FFFFFF</color>
+    <color name="colorInputBoxStroke">#3D3D3D</color>
+    <color name="colorInputText">#3D3D3D</color>
 </resources>
