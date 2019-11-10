@@ -100,9 +100,6 @@ public class MainActivity extends AppCompatActivity {
             mainET.setText(null);
             mainET.clearFocus();
 
-//            dataItemMainList.add(new DataItemMain(Integer.parseInt(input)));
-//            int index = mainArray.size();
-//            mainArray[index + 1] = Integer.parseInt(input);
             mainArray.add(Integer.parseInt(input));
             mainCondition();
             sortedEmptyTV.setText(R.string.string_main_sorted_msg);
