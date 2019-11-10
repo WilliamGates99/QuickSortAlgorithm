@@ -148,39 +148,4 @@ public class MainActivity extends AppCompatActivity {
             quickSort(array, partitionIndex + 1, high);
         }
     }
-
-//    private int partition(ArrayList<Integer> array, int low, int high) {
-//        int pivot = array.get(low);
-//        int i = low;
-//        int j = high;
-//
-//        do {
-//            do {
-//                i++;
-//            } while (array.get(i) < pivot);
-//
-//            do {
-//                j--;
-//            } while (array.get(j) > pivot);
-//
-//            int temp = array.get(j);
-//            array.set(j, array.get(i));
-//            array.set(i, temp);
-//        } while (i <= j);
-//
-//        int temp = array.get(j);
-//        array.set(j, array.get(i));
-//        array.set(i, temp);
-//
-//        return j;
-//    }
-//
-//    private void quickSort(ArrayList<Integer> array, int low, int high) {
-//        if (low <= high) {
-//            int partitionIndex = partition(array, low, high);
-//
-//            quickSort(array, low, partitionIndex - 1);
-//            quickSort(array, partitionIndex + 1, high);
-//        }
-//    }
 }
