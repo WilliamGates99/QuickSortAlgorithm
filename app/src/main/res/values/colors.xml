@@ -7,6 +7,7 @@
     <color name="colorInputText">#3D3D3D</color>
     <color name="colorButtonAdd">#595959</color>
     <color name="colorButtonSort">#00C853</color>
+    <color name="colorTitleText">#2D2D2D</color>
     <color name="colorListText">#3D3D3D</color>
 
 </resources>
