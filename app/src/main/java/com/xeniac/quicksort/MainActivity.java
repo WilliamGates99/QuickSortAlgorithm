@@ -12,7 +12,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.xeniac.quicksort.adapters.MainAdapter;
 
 import java.util.ArrayList;
 import java.util.Objects;

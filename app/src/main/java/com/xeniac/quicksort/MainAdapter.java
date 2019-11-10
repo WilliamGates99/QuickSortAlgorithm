@@ -1,4 +1,4 @@
-package com.xeniac.quicksort.adapters;
+package com.xeniac.quicksort;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.xeniac.quicksort.R;
-
 import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -18,7 +16,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     private ArrayList<Integer> mItems;
     private Context mContext;
 
-    public MainAdapter(Context context, ArrayList<Integer> items) {
+    MainAdapter(Context context, ArrayList<Integer> items) {
         this.mContext = context;
         this.mItems = items;
     }
