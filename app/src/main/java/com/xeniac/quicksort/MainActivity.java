@@ -13,10 +13,8 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.xeniac.quicksort.adapters.MainAdapter;
-import com.xeniac.quicksort.dataProviders.MainDataProvider;
-import com.xeniac.quicksort.models.DataItemMain;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView initialEmptyTV, sortedEmptyTV;
 
     private RecyclerView initialRV, sortedRV;
-    private List<DataItemMain> dataItemMainList = MainDataProvider.dataItemMainList;
+    private ArrayList<Integer> mainArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
         initialRV = findViewById(R.id.rv_main_initial);
         sortedRV = findViewById(R.id.rv_main_sorted);
 
+        mainArray = new ArrayList<>();
+
         mainCondition();
         editTextActionDone();
     }
 
     private void mainCondition() {
-        if (dataItemMainList.isEmpty()) {
+        if (mainArray.isEmpty()) {
             initialRV.setVisibility(View.GONE);
             sortedRV.setVisibility(View.GONE);
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mainRecyclerView() {
-        MainAdapter initialAdapter = new MainAdapter(this, dataItemMainList);
+        MainAdapter initialAdapter = new MainAdapter(this, mainArray);
         initialRV.setAdapter(initialAdapter);
     }
 
@@ -100,7 +100,10 @@ public class MainActivity extends AppCompatActivity {
             mainET.setText(null);
             mainET.clearFocus();
 
-            dataItemMainList.add(new DataItemMain(Integer.parseInt(input)));
+//            dataItemMainList.add(new DataItemMain(Integer.parseInt(input)));
+//            int index = mainArray.size();
+//            mainArray[index + 1] = Integer.parseInt(input);
+            mainArray.add(Integer.parseInt(input));
             mainCondition();
             sortedEmptyTV.setText(R.string.string_main_sorted_msg);
         }
@@ -110,7 +113,35 @@ public class MainActivity extends AppCompatActivity {
         sortedEmptyTV.setVisibility(View.GONE);
         sortedRV.setVisibility(View.VISIBLE);
 
-        MainAdapter sortedAdapter = new MainAdapter(this, dataItemMainList);
+        quickSort(mainArray, 0, mainArray.size() - 1);
+
+        MainAdapter sortedAdapter = new MainAdapter(this, mainArray);
         sortedRV.setAdapter(sortedAdapter);
+    }
+
+    private int partition(ArrayList<Integer> arrayList, int low, int high) {
+        int pivot = arrayList.get(high);
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (arrayList.get(j) < pivot) {
+                i++;
+
+                int temp = arrayList.get(i);
+                arrayList.set(i, arrayList.get(high));
+                arrayList.set(high, temp);
+            }
+        }
+
+        return i + 1;
+    }
+
+    private void quickSort(ArrayList<Integer> arrayList, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(arrayList, low, high);
+
+            quickSort(arrayList, low, partitionIndex - 1);
+            quickSort(arrayList, partitionIndex + 1, high);
+        }
     }
 }

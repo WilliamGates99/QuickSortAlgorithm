@@ -10,17 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xeniac.quicksort.R;
-import com.xeniac.quicksort.models.DataItemMain;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    public static final String ITEM_KEY = "item_key";
-    private List<DataItemMain> mItems;
+    private ArrayList<Integer> mItems;
     private Context mContext;
 
-    public MainAdapter(Context context, List<DataItemMain> items) {
+    public MainAdapter(Context context, ArrayList<Integer> items) {
         this.mContext = context;
         this.mItems = items;
     }
@@ -37,9 +35,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final DataItemMain item = mItems.get(position);
+        final int item = mItems.get(position);
 
-        holder.textView.setText(String.valueOf(item.getNumber()));
+        holder.textView.setText(String.valueOf(item));
     }
 
     @Override
