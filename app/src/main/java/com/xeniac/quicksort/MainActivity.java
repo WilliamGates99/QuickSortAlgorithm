@@ -106,13 +106,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sortOnClick(View view) {
-        sortedEmptyTV.setVisibility(View.GONE);
-        sortedRV.setVisibility(View.VISIBLE);
+        if (initialEmptyTV.getVisibility() != View.VISIBLE) {
+            sortedEmptyTV.setVisibility(View.GONE);
+            sortedRV.setVisibility(View.VISIBLE);
 
-        quickSort(mainArray, 0, mainArray.size() - 1);
+            quickSort(mainArray, 0, mainArray.size() - 1);
 
-        MainAdapter sortedAdapter = new MainAdapter(this, mainArray);
-        sortedRV.setAdapter(sortedAdapter);
+            MainAdapter sortedAdapter = new MainAdapter(this, mainArray);
+            sortedRV.setAdapter(sortedAdapter);
+        }
     }
 
     private int partition(ArrayList<Integer> array, int low, int high) {
