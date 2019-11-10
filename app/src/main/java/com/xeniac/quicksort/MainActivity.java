@@ -119,29 +119,68 @@ public class MainActivity extends AppCompatActivity {
         sortedRV.setAdapter(sortedAdapter);
     }
 
-    private int partition(ArrayList<Integer> arrayList, int low, int high) {
-        int pivot = arrayList.get(high);
+    private int partition(ArrayList<Integer> array, int low, int high) {
+        int pivot = array.get(high);
         int i = low - 1;
 
         for (int j = low; j < high; j++) {
-            if (arrayList.get(j) < pivot) {
+            if (array.get(j) < pivot) {
                 i++;
 
-                int temp = arrayList.get(i);
-                arrayList.set(i, arrayList.get(high));
-                arrayList.set(high, temp);
+                int temp = array.get(i);
+                array.set(i, array.get(j));
+                array.set(j, temp);
             }
         }
+
+        int temp = array.get(i + 1);
+        array.set(i + 1, array.get(high));
+        array.set(high, temp);
 
         return i + 1;
     }
 
-    private void quickSort(ArrayList<Integer> arrayList, int low, int high) {
+    private void quickSort(ArrayList<Integer> array, int low, int high) {
         if (low < high) {
-            int partitionIndex = partition(arrayList, low, high);
+            int partitionIndex = partition(array, low, high);
 
-            quickSort(arrayList, low, partitionIndex - 1);
-            quickSort(arrayList, partitionIndex + 1, high);
+            quickSort(array, low, partitionIndex - 1);
+            quickSort(array, partitionIndex + 1, high);
         }
     }
+
+//    private int partition(ArrayList<Integer> array, int low, int high) {
+//        int pivot = array.get(low);
+//        int i = low;
+//        int j = high;
+//
+//        do {
+//            do {
+//                i++;
+//            } while (array.get(i) < pivot);
+//
+//            do {
+//                j--;
+//            } while (array.get(j) > pivot);
+//
+//            int temp = array.get(j);
+//            array.set(j, array.get(i));
+//            array.set(i, temp);
+//        } while (i <= j);
+//
+//        int temp = array.get(j);
+//        array.set(j, array.get(i));
+//        array.set(i, temp);
+//
+//        return j;
+//    }
+//
+//    private void quickSort(ArrayList<Integer> array, int low, int high) {
+//        if (low <= high) {
+//            int partitionIndex = partition(array, low, high);
+//
+//            quickSort(array, low, partitionIndex - 1);
+//            quickSort(array, partitionIndex + 1, high);
+//        }
+//    }
 }
